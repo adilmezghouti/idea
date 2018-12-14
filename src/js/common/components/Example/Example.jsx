@@ -45,20 +45,50 @@ class Example extends PureComponent {
 
     if (result && result.size && result.size > 0) {
       return (
-        <div className={styles.exampleOutput}>
-          <h1>
-            Let&apos;s Get
-            <span className="emphasize">Started</span>
-          </h1>
-          <p>If you see this screen, it means you are all setup \o/</p>
-          <p>The following JSON are showing contents coming from Redux, Saga and Config.</p>
-          <pre>
-            {JSON.stringify(result.toJS(), undefined, 2)}
-          </pre>
+        <div className="card">
+          <div className="card-header">
+            <h3>Great Ideas</h3>
+          </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>
+                  #
+                </th>
+                <th>Username</th>
+                <th>Description</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  1
+                </th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  2
+                </th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  3
+                </th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-
-      );
+      )
     }
     return <div />;
   }

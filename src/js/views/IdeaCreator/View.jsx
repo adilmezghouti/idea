@@ -5,12 +5,10 @@ import { connect } from 'react-redux'
 import LazyLoading from '../../common/components/LazyLoading'
 import { actions as exampleActions } from '../../redux/modules/example'
 import { exampleSelector } from '../../redux/selectors/exampleSelector'
-import { ExampleWithError } from '../../common/components/Example'
+import { IdeaCreator } from '../../common/components/Example'
 import { ErrorBoundary } from '../../common/components/Utilities'
 
 require('../../../style/index.css')
-
-const LazyExample = LazyLoading(() => import('../../common/components/Example/Example'))
 
 const mapStateToProps = (state) => ({
   example: exampleSelector(state),
@@ -21,7 +19,7 @@ const mapDispatchToProps = {
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-class ExampleView extends Component {
+class IdeaCreatorView extends Component {
   static propTypes = {
     example: PropTypes.object.isRequired,
   }
@@ -34,14 +32,11 @@ class ExampleView extends Component {
 
   render() {
     return (
-      <Fragment>
-        <LazyExample {...this.props} />
-        {/* <ErrorBoundary>
-          <ExampleWithError {...this.props} />
-        </ErrorBoundary> */}
-      </Fragment>
+      <ErrorBoundary>
+        <IdeaCreator {...this.props} />
+      </ErrorBoundary>
     )
   }
 }
 
-export default ExampleView
+export default IdeaCreatorView

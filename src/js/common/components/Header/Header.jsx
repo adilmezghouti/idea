@@ -10,25 +10,35 @@ class Header extends PureComponent {
 
     const isHome = pathname === '/';
     const isJustAnotherPage = pathname === '/page';
-
+    const isIdeaCreatorPage = pathname === '/new-idea';
     return (
-      <header className={styles.globalHeader}>
-        <ul>
-          <li className={!isHome ? styles.active : ''}>
-            {
-              isHome
-                ? 'Home' : <Link to="/">Home</Link>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">JInnovate</Link>
 
-            }
-          </li>
-          <li className={!isJustAnotherPage ? styles.active : ''}>
-            {
-              isJustAnotherPage
-                ? 'Just Another Page' : <Link to="/page">Just Another Page</Link>
-            }
-          </li>
-        </ul>
-      </header>
+        <div className="collapse navbar-collapse" id="navbarsExample09">
+          <ul className="navbar-nav mr-auto">
+            <li className={!isHome ? 'nav-item active' : 'nav-item disabled'}>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className={!isJustAnotherPage ? 'nav-item active' : 'nav-item disabled'}>
+              <Link className="nav-link" to="/page">Ideas</Link>
+            </li>
+            <li className={!isIdeaCreatorPage ? 'nav-item active' : 'nav-item disabled'}>
+              <Link className="nav-link" to="/new-idea">New Idea</Link>
+            </li>
+          </ul>
+          <div>
+            <form className="form-inline my-2 my-md-0">
+              <div className="input-group">
+                <input type="text" className="form-control mr-sm-2" placeholder="Search for..." />
+                <button className="btn btn-outline-success my-2 my-sm-0" type="button">Go!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
     );
   }
 }
